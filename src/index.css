@@ -2,7 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background: rgb(15,15,15);
-    color:white;
+body {
+  background: rgb(15, 15, 15);
+  color: white;
+}
+.videos {
+  width: 100%;
+  display: grid;
+  gap: 50px;
+  height: 100vh;
+  overflow: auto;
+  grid-template-columns: repeat(auto-fit, minMax(350px, 450px));
+  padding: 10px;
 }
