@@ -2,6 +2,7 @@ import { useContext } from "react";
 import SideBar from "../Components/SideBar";
 import { VideoContext } from "../Context/videoContext";
 import VideoCard from "../Components/VideoCard";
+import Loader from "../Components/Loader";
 
 const Feed = () => {
   const { videos } = useContext(VideoContext);
@@ -9,7 +10,7 @@ const Feed = () => {
     <div className="flex gap-4 ">
       <SideBar />
       <div className="videos">
-        {!true ? (
+        {!videos ? (
           <Loader />
         ) : (
           videos?.map(

@@ -11,6 +11,12 @@ export const VideoProvider = ({ children }) => {
   console.log(selectedCategory);
   //kategori her dğiştiğinde api dan verileri al
   useEffect(() => {
+    //menü secildiyse fonksiyonu durdur
+    if (selectedCategory.type === "home") return;
+
+    //önceki kategorinni ver,ilerini temizle
+    setVideos(null);
+
     //type home ise home endpointine istek at
     if (selectedCategory.type === "home") {
       getData("/home").then((res) => setVideos(res.data));
