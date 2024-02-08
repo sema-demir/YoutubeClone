@@ -12,7 +12,7 @@ export const VideoProvider = ({ children }) => {
   //kategori her dğiştiğinde api dan verileri al
   useEffect(() => {
     //menü secildiyse fonksiyonu durdur
-    if (selectedCategory.type === "home") return;
+    if (selectedCategory.type === "menu") return;
 
     //önceki kategorinni ver,ilerini temizle
     setVideos(null);

@@ -32,7 +32,7 @@ const VideoCard = ({ video }) => {
         <div>
           <h4 className="line-clamp-2 font-bold">{video.title} </h4>
           <p>{video.channelTitle} </p>
-          <div className=" detail flex gap-2">
+          <div className=" flex gap-2">
             <p>
               <span>{millify(video.viewCount)}</span>
               <span>Görüntülenme</span>

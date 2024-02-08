@@ -25,3 +25,14 @@ body {
   background: gray;
   border-radius: 10px;
 }
+
+.detail-page {
+  display: grid;
+  grid-template-columns: auto 400px;
+}
+
+@media (max-width: 1000px) {
+  .detail-page {
+    grid-template-columns: 1fr;
+  }
+}

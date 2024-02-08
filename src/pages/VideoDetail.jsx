@@ -5,6 +5,8 @@ import ReactPlayer from "react-player";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import millify from "millify";
 import StringArea from "../Components/StringArea";
+import Loader from "../Components/Loader";
+import VideoCard from "../Components/VideoCard";
 
 const VideoDetail = () => {
   const [video, setVideo] = useState(null);
@@ -22,7 +24,7 @@ const VideoDetail = () => {
   }, [searchParams]);
 
   return (
-    <div className="detail-page h-screen overflow-hidden">
+    <div className="detail-page h-screen overflow-auto p-5 ">
       {/* video içeriği */}
       <div>
         <ReactPlayer
@@ -38,7 +40,7 @@ const VideoDetail = () => {
         ) : (
           <>
             {/* //baslık */}
-            <h1 className="my-3 text-left text-xl font-bol">{video.title}</h1>
+            <h1 className="my-3 text-xl font-bol">{video.title}</h1>
 
             {/* kanal bilgileri */}
             <div className="flex justify-between">
@@ -57,8 +59,8 @@ const VideoDetail = () => {
                 </button>
               </div>
               {/* sag  */}
-              <div className="flex-items-center bg-[#272727] rounded-full cursor-pointer">
-                <div className="flex items-center gap-4 py-2 px-4 ">
+              <div className="flex items-center bg-[#272727] rounded-full cursor-pointer">
+                <div className="flex items-center gap-4 py-2 px-4 border-r">
                   <AiFillLike />
                 </div>
                 <div className="py-2 px-4">
@@ -81,8 +83,17 @@ const VideoDetail = () => {
           </>
         )}
       </div>
+
       {/* ilgili videolar  */}
-      <div></div>
+      <div className="flex flex-col gap-5 p-6">
+        {!video ? (
+          <Loader />
+        ) : (
+          video.relatedVideos.data.map(
+            (item) => item.type === "video" && <VideoCard video={item} />
+          )
+        )}
+      </div>
     </div>
   );
 };

@@ -10,7 +10,15 @@ const StringArea = ({ text }) => {
   if (!expand && text.length > 300) {
     shortText = text.slice(0, 300) + "...daha fazla";
   }
-  return <div onClick={() => setExpand(!expand)}>{shortText}</div>;
+  return (
+    <div onClick={() => setExpand(!expand)}>
+      {shortText.split("\n").map((line) => (
+        <span>
+          {line} <br />
+        </span>
+      ))}
+    </div>
+  );
 };
 
 export default StringArea;
