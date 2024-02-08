@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background: rgb(15, 15, 15);
+  background: black;
   color: white;
 }
 .videos {
@@ -12,12 +12,16 @@ body {
   gap: 50px;
   height: 100vh;
   overflow: auto;
-  grid-template-columns: repeat(auto-fit, minMax(350px, 450px));
-  padding: 10px;
+  grid-template-columns: repeat(auto-fit, minMax(350px, 1fr));
+  padding: 20px;
 }
 
 .videos::-webkit-scrollbar {
   background: transparent;
   width: 6px;
+  border-radius: 10px;
+}
+.videos::-webkit-scrollbar-thumb {
+  background: gray;
   border-radius: 10px;
 }
