@@ -11,10 +11,10 @@ import VideoCard from "../Components/VideoCard";
 const VideoDetail = () => {
   const [video, setVideo] = useState(null);
 
-  //arama parametresşne erişim için kurulum
+  //arama parametresne erişim için kurulum
   const [searchParams] = useSearchParams();
 
-  //url den "v isimli parametreyi getir"
+  //url den "v" isimli parametreyi getir"
 
   const id = searchParams.get("v");
 
@@ -85,12 +85,13 @@ const VideoDetail = () => {
       </div>
 
       {/* ilgili videolar  */}
-      <div className="flex flex-col gap-5 p-6">
+      <div className="flex flex-col gap-5 p-1 max-md:mt-6 md:p-6 ">
         {!video ? (
           <Loader />
         ) : (
           video.relatedVideos.data.map(
-            (item) => item.type === "video" && <VideoCard video={item} />
+            (item) =>
+              item.type === "video" && <VideoCard video={item} isRow={true} />
           )
         )}
       </div>

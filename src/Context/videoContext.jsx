@@ -1,10 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import { categories } from "../Constants";
 import { getData } from "../Helpers/getData";
-
+//contexte abone ol
 export const VideoContext = createContext();
-
+//hangi kategorini secileceginni stateini tutuldu
 export const VideoProvider = ({ children }) => {
+  //kapyasıcı bileşen tanımlandı
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
   const [videos, setVideos] = useState(null);
@@ -17,7 +18,7 @@ export const VideoProvider = ({ children }) => {
     //önceki kategorinni ver,ilerini temizle
     setVideos(null);
 
-    //type home ise home endpointine istek at
+    //type home ise home endpointine istek atıldı
     if (selectedCategory.type === "home") {
       getData("/home").then((res) => setVideos(res.data));
     }
